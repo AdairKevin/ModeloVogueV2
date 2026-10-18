@@ -1,0 +1,172 @@
+/* =====================================================
+   LAYOUT.CSS
+   Estructura general de la invitación
+===================================================== */
+
+/* ===========================
+   RESET
+=========================== */
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===========================
+   HTML
+=========================== */
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* ===========================
+   BODY
+=========================== */
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg-body);
+}
+
+/* ===========================
+   IMÁGENES
+=========================== */
+
+img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===========================
+   ENLACES
+=========================== */
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* ===========================
+   LISTAS
+=========================== */
+
+ul,
+ol {
+  list-style: none;
+}
+
+/* ===========================
+   BOTONES
+=========================== */
+
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* ===========================
+   CONTENEDOR GENERAL
+=========================== */
+
+.container {
+  width: min(100%, 1200px);
+  margin: auto;
+}
+
+/* ===========================
+   CENTRADO
+=========================== */
+
+.center {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+/* ===========================
+   SECCIONES
+=========================== */
+
+/* ===========================
+   CONTENIDO
+=========================== */
+
+.content {
+  width: 100%;
+}
+
+/* ===========================
+   OVERLAY
+=========================== */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* ===========================
+   FLEX
+=========================== */
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===========================
+   GRID
+=========================== */
+
+.grid {
+  display: grid;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media (max-width: 768px) {
+  .grid-2,
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .section {
+    padding: 60px 0;
+  }
+}

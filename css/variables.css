@@ -1,0 +1,206 @@
+/* =====================================================
+   VARIABLES.CSS
+   Design System
+===================================================== */
+
+/* Las fuentes de Google (Playball, Bodoni Moda, Cormorant Garamond, Inter)
+   se cargan con <link> en el <head> del index.html (más rápido que @import). */
+@import url("https://fonts.cdnfonts.com/css/vogue");
+
+:root {
+  /*=========================================
+      COLORES
+    =========================================*/
+
+  --color-primary: #f8b6c9; /* Blush rosa suave */
+  --color-secondary: #f06292; /* Rosa medio sofisticado */
+  --color-accent: #ff2870; /* Fucsia elegante */
+
+  --color-title: #3f3f3f;
+
+  --color-text: #000000; /* Gris elegante */
+  --color-primary-light: #fdd7e6; /* Texto secundario */
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Premium: texto suave y oro rosado (el del sello de cera) */
+  --color-text-light: #8d7a82;
+  --rose-gold: #c98a9b;
+  --rose-gold-light: #f3d2d9;
+  --gradient-rose-gold: linear-gradient(
+    135deg,
+    #f3d2d9 0%,
+    #c98a9b 45%,
+    #f8e1e6 70%,
+    #b76e79 100%
+  );
+
+  --bg-body: #f4f4f4;
+  --bg-body-2: #ffcedc;
+  --card: #ff9bb7;
+
+  /*=========================================
+      TIPOGRAFÍAS
+    =========================================*/
+
+  --font-title: "Playball", cursive;
+
+  --font-subtitle: "Vogue", "Bodoni Moda", serif;
+
+  --font-body: "Bodoni Moda", serif;
+
+  /*=========================================
+      PESO DE FUENTE
+    =========================================*/
+
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-medium: 500;
+  --fw-semibold: 600;
+  --fw-bold: 700;
+
+  /*=========================================
+      ESPACIADOS
+    =========================================*/
+
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2rem;
+  --space-xl: 3rem;
+  --space-2xl: 5rem;
+
+  /*=========================================
+      BORDES
+    =========================================*/
+
+  --radius-sm: 0.5rem;
+  --radius-md: 1rem;
+  --radius-lg: 2rem;
+  --radius-full: 999px;
+
+  /*=========================================
+      SOMBRAS
+    =========================================*/
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 6px 18px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.18);
+  --shadow-float: 0 8px 24px rgba(0, 0, 0, 0.16);
+  --shadow-text: 0 2px 8px rgba(0, 0, 0, 0.623);
+
+  /*=========================================
+      TRANSICIONES
+    =========================================*/
+
+  --transition-fast: 0.2s;
+  --transition: 0.3s;
+  --transition-slow: 0.5s;
+  --ease-premium: cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  /*=========================================
+      CONTENEDORES
+    =========================================*/
+
+  --container-width: 650px;
+
+  --section-padding: 5rem;
+
+  --container-padding: 1.5rem;
+
+  /*=========================================
+      CAPAS
+    =========================================*/
+
+  --z-background: -1;
+  --z-normal: 1;
+  --z-overlay: 10;
+  --z-modal: 100;
+  --z-loader: 1000;
+
+  /*=========================================
+      IMÁGENES
+    =========================================*/
+
+  --hero-image: url("../assets/images/portada.jpg");
+}
+
+/*=========================================
+  GRADIENTES
+=========================================*/
+
+:root {
+  /*=========================================
+      FONDOS GENERALES
+    =========================================*/
+
+  --gradient-background: linear-gradient(
+    180deg,
+    #ffabe0 0%,
+    #ffc4f3 50%,
+    #fee7f7 100%
+  );
+
+  --gradient-background-soft: linear-gradient(180deg, #fdb9f2 0%, #ff70e7 100%);
+
+  --gradient-background-dark: linear-gradient(180deg, #1f1f1f 0%, #000000 100%);
+
+  /*=========================================
+      PORTADA / HERO
+    =========================================*/
+
+  --gradient-hero-overlay: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.65)
+  );
+
+  --gradient-image-overlay: linear-gradient(
+    180deg,
+    transparent 40%,
+    rgba(0, 0, 0, 0.75) 100%
+  );
+
+  /*=========================================
+      TÍTULOS
+    =========================================*/
+
+  --gradient-title: linear-gradient(90deg, #b88646, #f5d58a, #b88646);
+
+  --gradient-title-dark: linear-gradient(90deg, #8c6239, #d4af37);
+
+  /*=========================================
+      BOTONES
+    =========================================*/
+
+  --gradient-button: linear-gradient(135deg, #d4af37, #b88646);
+
+  --gradient-button-hover: linear-gradient(135deg, #e6c65c, #c49a3a);
+
+  /*=========================================
+      TARJETAS / COMPONENTES
+    =========================================*/
+
+  --gradient-card: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.9),
+    rgba(248, 245, 240, 0.9)
+  );
+
+  /*=========================================
+      GRADIENTE PREMIUM
+    =========================================*/
+
+  --gradient-premium: linear-gradient(135deg, #fff8e7, #d4af37, #fff8e7);
+
+  /*=========================================
+      GRADIENTES DECORATIVOS
+    =========================================*/
+
+  --gradient-gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728);
+
+  --gradient-sunset: linear-gradient(135deg, #ff9a9e, #fad0c4);
+
+  --gradient-nature: linear-gradient(135deg, #dce8d5, #f7f1e8);
+}

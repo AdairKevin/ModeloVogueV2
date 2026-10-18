@@ -1,0 +1,54 @@
+/* =====================================================
+   RESPONSIVE.CSS
+   Mobile First
+===================================================== */
+
+/* ==========================================
+   TABLETS
+   768px en adelante
+========================================== */
+
+@media screen and (min-width: 768px) {
+  body {
+    background: var(--bg-body);
+    position: relative;
+    padding: 3rem;
+    font-size: 1rem;
+  }
+
+  .container {
+    width: 600px;
+    position: relative;
+  }
+
+  .envelope {
+    width: 380px; /* antes 70%: se estiraba demasiado en tablet/escritorio */
+  }
+}
+
+/* ==========================================
+   LAPTOPS
+   1024px en adelante
+========================================== */
+
+@media screen and (min-width: 1024px) {
+  .envelope {
+    width: 420px; /* antes 55% */
+  }
+}
+
+/* ==========================================
+   DESKTOP
+   1280px en adelante
+========================================== */
+
+@media screen and (min-width: 1280px) {
+}
+
+/* ==========================================
+   PANTALLAS GRANDES
+   1440px en adelante
+========================================== */
+
+@media screen and (min-width: 1440px) {
+}

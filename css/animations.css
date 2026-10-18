@@ -1,0 +1,294 @@
+/* =====================================================
+   ANIMATIONS.CSS
+   Keyframes y efectos reutilizables (versión premium)
+===================================================== */
+
+/* ---------- Sello de cera: latido con halo rosado ---------- */
+@keyframes pulso-sello {
+  0%,
+  100% {
+    box-shadow:
+      0 12px 24px rgba(0, 0, 0, 0.45),
+      0 0 0 0 rgba(240, 98, 146, 0.45);
+  }
+  50% {
+    box-shadow:
+      0 12px 24px rgba(0, 0, 0, 0.45),
+      0 0 0 16px rgba(240, 98, 146, 0);
+  }
+}
+
+/* ---------- Partículas (brillos, burbujas de champagne) ---------- */
+@keyframes particula-subir {
+  0% {
+    translate: 0 0;
+    opacity: 0;
+  }
+  12% {
+    opacity: var(--op, 0.8);
+  }
+  85% {
+    opacity: var(--op, 0.8);
+  }
+  100% {
+    translate: var(--dx, 0px) calc(var(--rise, 100vh) * -1);
+    opacity: 0;
+  }
+}
+
+@keyframes destello {
+  0%,
+  100% {
+    opacity: 0;
+    scale: 0.3;
+  }
+  50% {
+    opacity: var(--op, 1);
+    scale: 1;
+  }
+}
+
+/* ---------- Brillo que cruza un texto ---------- */
+@keyframes brillo {
+  0% {
+    background-position: 130% 0;
+  }
+  100% {
+    background-position: -130% 0;
+  }
+}
+
+/* ---------- Movimientos suaves ---------- */
+@keyframes flotar {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+@keyframes balanceo {
+  0% {
+    rotate: -1.5deg;
+  }
+  100% {
+    rotate: 1.5deg;
+  }
+}
+
+@keyframes latido-suave {
+  0%,
+  100% {
+    scale: 1;
+  }
+  50% {
+    scale: 1.06;
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    translate: 0 14px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* ---------- Cambio de número en la cuenta regresiva ---------- */
+@keyframes cambio-numero {
+  0% {
+    opacity: 0.25;
+    translate: 0 -10px;
+  }
+  100% {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+/* ---------- Línea de "desliza" ---------- */
+@keyframes linea-scroll {
+  0% {
+    scale: 1 0;
+    transform-origin: top;
+  }
+  50% {
+    scale: 1 1;
+    transform-origin: top;
+  }
+  51% {
+    transform-origin: bottom;
+  }
+  100% {
+    scale: 1 0;
+    transform-origin: bottom;
+  }
+}
+
+/* ---------- Anillo del día del evento ---------- */
+@keyframes anillo {
+  0% {
+    scale: 0.9;
+    opacity: 0.7;
+  }
+  100% {
+    scale: 1.7;
+    opacity: 0;
+  }
+}
+
+/* ---------- Salida del sobre ---------- */
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    scale: 1.06;
+    visibility: hidden;
+  }
+}
+
+/* =====================================================
+   PARTÍCULAS (las crea script.js con generarParticulas)
+===================================================== */
+.fx {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.particula {
+  position: absolute;
+  bottom: -20px;
+  width: var(--size, 6px);
+  height: var(--size, 6px);
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fff 0%,
+    rgba(255, 255, 255, 0.55) 35%,
+    rgba(248, 182, 201, 0.35) 70%,
+    transparent 100%
+  );
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  opacity: 0;
+  animation: particula-subir var(--dur, 9s) linear var(--delay, 0s) infinite;
+}
+
+/* Estrellita de 4 puntas */
+.destello {
+  position: absolute;
+  width: var(--size, 14px);
+  height: var(--size, 14px);
+  background: var(--c, #fff);
+  clip-path: polygon(
+    50% 0,
+    62% 38%,
+    100% 50%,
+    62% 62%,
+    50% 100%,
+    38% 62%,
+    0 50%,
+    38% 38%
+  );
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+  opacity: 0;
+  animation: destello var(--dur, 3s) ease-in-out var(--delay, 0s) infinite;
+}
+
+/* =====================================================
+   SCROLL REVEAL (las clases las pone script.js)
+   Se usan propiedades individuales (translate, scale, clip-path)
+   para no pisar los transform: rotate() de tus tarjetas.
+===================================================== */
+.reveal {
+  opacity: 0;
+  translate: 0 34px;
+}
+
+.js .reveal {
+  transition:
+    opacity 1s var(--ease-premium),
+    translate 1s var(--ease-premium),
+    scale 1s var(--ease-premium),
+    clip-path 1.3s var(--ease-premium);
+  transition-delay: var(--d, 0s);
+  will-change: opacity, translate;
+}
+
+/* Cuando ya terminó de aparecer: se devuelven las transiciones de hover */
+.js .reveal.listo {
+  transition:
+    box-shadow 0.5s ease,
+    translate 0.6s var(--ease-premium),
+    scale 0.6s var(--ease-premium),
+    color 0.3s ease,
+    transform 0.4s ease;
+  transition-delay: 0s;
+  will-change: auto;
+}
+
+.reveal.visible {
+  opacity: 1;
+  translate: 0 0;
+  scale: 1;
+}
+
+.reveal-zoom {
+  translate: 0 0;
+  scale: 0.9;
+}
+
+.reveal-left {
+  translate: -34px 0;
+}
+
+.reveal-right {
+  translate: 34px 0;
+}
+
+/* Fotos: se "descubren" como una cortina (mantiene la sombra) */
+.reveal-wipe {
+  translate: 0 0;
+  clip-path: inset(0 0 100% 0);
+}
+
+.reveal-wipe.visible {
+  clip-path: inset(-60px -60px -60px -60px);
+}
+
+/* Líneas decorativas: se dibujan de izquierda a derecha */
+.reveal-line {
+  translate: 0 0;
+  scale: 0 1;
+}
+
+/* =====================================================
+   ACCESIBILIDAD
+===================================================== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    translate: 0 0;
+    scale: 1;
+    clip-path: none;
+  }
+
+  .fx {
+    display: none;
+  }
+}

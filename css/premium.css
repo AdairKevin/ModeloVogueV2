@@ -1,0 +1,522 @@
+/* =====================================================
+   PREMIUM.CSS
+   Capa de mejoras sobre style.css (se carga al final).
+   No reemplaza tu diseño: lo refina y le da movimiento.
+===================================================== */
+
+/* ---------- Base ---------- */
+.invitation-content {
+  overflow-x: clip; /* evita el scroll horizontal por decoraciones que se salen */
+}
+
+::selection {
+  background: var(--color-primary);
+  color: var(--color-title);
+}
+
+/* Barra de progreso de lectura */
+.progreso {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gradient-rose-gold);
+  transform-origin: left;
+  scale: 0 1;
+  z-index: 900;
+  pointer-events: none;
+}
+
+/* =====================================================
+   PORTADA (HERO)
+===================================================== */
+#hero {
+  position: relative;
+}
+
+.hero {
+  background-position: center calc(50% + var(--py, 0px));
+}
+
+/* Estado inicial (solo si hay JS) */
+.js #hero:not(.hero-activo) .hero-line {
+  opacity: 0;
+  translate: 0 46px;
+  filter: blur(10px);
+}
+
+.js #hero:not(.hero-activo) .hero::after {
+  opacity: 0;
+  translate: 8% 10%;
+}
+
+/* En escritorio el título se salía de la portada (12rem): se limita */
+.hero-title {
+  font-size: clamp(6rem, 15vw, 8rem);
+  line-height: 1.05;
+}
+
+.hero-line {
+  display: block;
+  transition:
+    opacity 1.2s var(--ease-premium),
+    translate 1.4s var(--ease-premium),
+    filter 1.2s var(--ease-premium);
+  transition-delay: calc(0.35s + var(--i, 0) * 0.22s);
+}
+
+.hero::after {
+  transition:
+    opacity 1.6s ease 0.1s,
+    translate 2.2s var(--ease-premium) 0.1s;
+  animation: balanceo 7s ease-in-out 2.4s infinite alternate;
+}
+
+/* Brillos y burbujas de champagne */
+.hero-fx {
+  z-index: 10001;
+}
+
+/* Indicador de scroll */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 6%;
+  translate: -50% 0;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  font-family: var(--font-subtitle);
+  font-size: 0.6rem;
+  letter-spacing: 6px;
+  text-indent: 6px;
+  text-transform: uppercase;
+  color: var(--color-title);
+  opacity: 0;
+  transition: opacity 1s ease 2.2s;
+}
+
+.hero-activo .hero-scroll {
+  opacity: 0.85;
+}
+
+.hero-scroll::after {
+  content: "";
+  width: 1px;
+  height: 38px;
+  background: var(--color-accent);
+  animation: linea-scroll 2.2s ease-in-out infinite;
+}
+
+/* =====================================================
+   NOMBRE
+===================================================== */
+#name::before {
+  white-space: nowrap;
+  text-align: center;
+  font-size: clamp(3.8rem, 21vw, 6rem);
+  letter-spacing: 6px;
+}
+
+/* Brillo de oro rosado que cruza el nombre */
+.name-xv {
+  background: linear-gradient(
+    100deg,
+    var(--color-title) 38%,
+    #c98a9b 47%,
+    #f8e1e6 50%,
+    #c98a9b 53%,
+    var(--color-title) 62%
+  );
+  background-size: 260% 100%;
+  background-position: 130% 0;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: brillo 7s ease-in-out 1.5s infinite;
+  padding-bottom: 0.08em; /* evita que se corten los descendentes */
+}
+
+.edition-xv::before,
+.edition-xv::after {
+  transition: width 1.2s var(--ease-premium);
+}
+
+/* =====================================================
+   WELCOME
+===================================================== */
+#welcome .editorial-message {
+  text-wrap: balance;
+}
+
+/* =====================================================
+   FOTOS PRINCIPALES
+===================================================== */
+.container-fotos {
+  box-shadow: 0 30px 60px -25px rgba(120, 60, 80, 0.45);
+}
+
+.container-fotos img:hover {
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.35);
+}
+
+/* =====================================================
+   CUENTA REGRESIVA (horizontal, como un reloj editorial)
+===================================================== */
+.fecha h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  letter-spacing: 6px;
+}
+
+.fecha h2::before,
+.fecha h2::after {
+  position: static;
+  flex: 0 1 clamp(22px, 9vw, 60px);
+  margin: 0;
+  transform-origin: center;
+}
+
+.timer {
+  margin-top: 2.2rem;
+}
+
+.timer-titulo {
+  margin-bottom: 1rem;
+  font-weight: var(--fw-regular);
+}
+
+.date-time {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(12px, 4vw, 26px);
+}
+
+.date-time li {
+  position: relative;
+  flex: 0 0 clamp(58px, 18vw, 84px);
+  text-align: center;
+}
+
+.date-time li:not(:last-child)::after {
+  position: absolute;
+  top: 0.3em;
+  right: calc(clamp(12px, 4vw, 26px) / -2 - 0.25em);
+  font-size: 1.4rem;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+.time_number {
+  font-size: clamp(2.6rem, 12.5vw, 4rem);
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  min-height: 1.1em;
+}
+
+.time_number.tick {
+  animation: cambio-numero 0.5s var(--ease-premium);
+}
+
+.time_txt {
+  margin-top: 0.3rem;
+  font-family: var(--font-subtitle);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-indent: 4px;
+  font-size: 0.6rem;
+}
+
+/* =====================================================
+   CALENDARIO
+===================================================== */
+.event-day::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  border-radius: 50%;
+  border: 1px solid var(--color-secondary);
+  animation: anillo 2.4s ease-out infinite;
+  z-index: -1;
+}
+
+.calendar div {
+  transition: color 0.3s ease;
+}
+
+/* Botones: destello que cruza al pasar el dedo/mouse */
+.btn-calendar,
+.gifts-link,
+.rsvp-link {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-calendar::after,
+.gifts-link::after,
+.rsvp-link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 70%
+  );
+  translate: -120% 0;
+  transition: translate 0.9s var(--ease-premium);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.btn-calendar:hover::after,
+.gifts-link:hover::after,
+.rsvp-link:hover::after {
+  translate: 120% 0;
+}
+
+.btn-calendar:active,
+.gifts-link:active,
+.rsvp-link:active {
+  scale: 0.97;
+}
+
+/* =====================================================
+   ARTÍCULO EDITORIAL
+===================================================== */
+.editorial-article p {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 2;
+  text-align: left;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-wrap: pretty;
+}
+
+.editorial-article p:first-child::first-letter {
+  font-family: var(--font-title);
+  font-size: 5.4rem;
+  margin-right: 12px;
+  margin-top: 4px;
+  background: var(--gradient-rose-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* =====================================================
+   COLLAGE (el rotate de tus tarjetas se respeta)
+===================================================== */
+.card {
+  transition:
+    box-shadow 0.5s ease,
+    translate 0.6s var(--ease-premium);
+}
+
+.card:hover {
+  translate: 0 -6px;
+  box-shadow: 0 24px 44px rgba(120, 60, 80, 0.22);
+}
+
+/* =====================================================
+   FAMILIA / PROGRAMA
+===================================================== */
+.linea {
+  transform-origin: center;
+}
+
+.schedule-content::before {
+  box-shadow: 0 0 0 4px rgba(255, 40, 112, 0.14);
+  transition: scale 0.5s var(--ease-premium);
+}
+
+.schedule-item:hover .schedule-content::before {
+  scale: 1.5;
+}
+
+.schedule-content p {
+  font-family: var(--font-body);
+}
+
+.hour {
+  font-weight: 500;
+}
+
+/* =====================================================
+   PASES DE ACCESO
+===================================================== */
+.boarding-pass {
+  transition:
+    box-shadow 0.5s ease,
+    translate 0.6s var(--ease-premium);
+  background-image: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0) 45%
+  );
+}
+
+.boarding-pass:hover {
+  translate: 0 -8px;
+  box-shadow: 0 34px 60px rgba(120, 60, 80, 0.2);
+}
+
+.boarding-pass a {
+  /* antes: hasta 3.5rem y se partía en 2 líneas */
+  font-size: clamp(1.25rem, 5.4vw, 1.7rem);
+  letter-spacing: 3px;
+  white-space: nowrap;
+  transition: letter-spacing 0.5s var(--ease-premium);
+}
+
+.boarding-pass a:hover {
+  letter-spacing: 6px;
+}
+
+/* =====================================================
+   DRESS CODE / REGALOS / RSVP / SOCIAL
+===================================================== */
+.dresscode-card,
+.gifts-card,
+.rsvp-card {
+  transition:
+    box-shadow 0.5s ease,
+    translate 0.6s var(--ease-premium);
+}
+
+.dresscode-card:hover,
+.gifts-card:hover,
+.rsvp-card:hover {
+  translate: 0 -6px;
+  box-shadow: 0 28px 50px rgba(120, 60, 80, 0.2);
+}
+
+.dresscode-number {
+  background: var(--gradient-rose-gold);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  padding-bottom: 0.1em;
+}
+
+.social-hashtag {
+  background: linear-gradient(
+    100deg,
+    #ff2870 0%,
+    #c98a9b 35%,
+    #f06292 65%,
+    #ff2870 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: brillo 6s ease-in-out infinite;
+  padding-bottom: 0.1em;
+}
+
+.social-hashtag:hover {
+  background-color: transparent;
+}
+
+.mirai-footer a {
+  display: inline-block;
+  transition:
+    scale 0.5s var(--ease-premium),
+    color 0.4s ease;
+}
+
+.mirai-footer a:hover {
+  scale: 1.06;
+  color: var(--color-white);
+}
+
+/* =====================================================
+   BOTÓN DE MÚSICA
+===================================================== */
+.music-btn {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.78);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--rose-gold-light);
+  box-shadow: 0 8px 22px rgba(120, 60, 80, 0.22);
+  z-index: 950;
+  transition: scale 0.3s var(--ease-premium);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.music-btn:hover {
+  scale: 1.08;
+}
+
+.music-btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.music-btn span {
+  width: 2px;
+  height: 14px;
+  background: var(--color-secondary);
+  border-radius: 2px;
+  transform-origin: center;
+  scale: 1 0.3;
+}
+
+.music-btn.playing span {
+  animation: barra 0.9s ease-in-out infinite alternate;
+}
+
+.music-btn.playing span:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.music-btn.playing span:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+@keyframes barra {
+  from {
+    scale: 1 0.25;
+  }
+  to {
+    scale: 1 1;
+  }
+}
+
+.music-btn.sin-musica {
+  display: none;
+}
+
+/* =====================================================
+   ESCRITORIO
+===================================================== */
+@media screen and (min-width: 768px) {
+  .music-btn {
+    right: 28px;
+    bottom: 28px;
+  }
+}
