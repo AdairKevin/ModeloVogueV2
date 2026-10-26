@@ -1,0 +1,258 @@
+{
+  "_instrucciones": "Aquí se cambian TODOS los textos, fotos, links y datos de la invitación. Cambia solo lo que está a la derecha de los dos puntos. Los textos aceptan <br /> para saltos de línea. Para ocultar un grupo agrega \"mostrar\": false dentro de él solo si la plantilla lo permite. La fecha de evento.inicio (AAAA-MM-DDTHH:MM) la usan la cuenta regresiva y el calendario. El día, la fecha, el calendario y la fecha de los pases se escriben solos con evento.inicio; sus nombres de meses y días están en textosFecha. El WhatsApp para confirmar va en confirmacion.whatsapp.",
+  "pagina": {
+    "titulo": "NYAH · XV Edition — Invitación"
+  },
+  "evento": {
+    "inicio": "2027-03-06T17:00",
+    "duracionHoras": 6,
+    "tituloCalendario": "Mis XV · NYAH",
+    "detallesCalendario": "Te esperamos para celebrar mi gran día.",
+    "lugarCalendario": "Parroquia San José"
+  },
+  "sobre": {
+    "frase": "Una invitación para ti",
+    "carta": "<small>You're invited</small> <strong>NYAH</strong> <em>XV Edition</em>",
+    "selloAria": "Abrir invitación",
+    "instruccion": "Toca el sello para abrir"
+  },
+  "musica": {
+    "archivo": "./assets/music/background.mp3",
+    "sinSoporte": "Tu navegador no soporta el elemento de audio.",
+    "botonAria": "Activar o pausar música"
+  },
+  "portada": {
+    "titulo": "<span class=\"hero-line\" style=\"--i: 0\">Its</span> <span class=\"hero-line\" style=\"--i: 1\">Party</span> <span class=\"hero-line\" style=\"--i: 2\">Time!</span>",
+    "desliza": "Desliza"
+  },
+  "nombre": {
+    "nombre": "NYAH",
+    "edicion": "XV EDITION",
+    "anio": "EST. 2027"
+  },
+  "bienvenida": {
+    "etiqueta": "EDITOR'S NOTE",
+    "texto": "Cada página guarda una historia. Cada detalle, un recuerdo. <br> Hoy comienza un capítulo inolvidable, y quiero compartirlo contigo."
+  },
+  "fotosPrincipales": {
+    "fotos": [
+      {
+        "foto": "./assets/img/fotos/foto1.jpg",
+        "alt": "Foto 1"
+      },
+      {
+        "foto": "./assets/img/fotos/foto2.jpg",
+        "alt": "Foto 2"
+      }
+    ]
+  },
+  "cuentaRegresiva": {
+    "titulo": "Solo faltan:",
+    "dias": "Dias",
+    "horas": "Hrs",
+    "minutos": "Min",
+    "segundos": "Seg"
+  },
+  "calendario": {
+    "etiqueta": "SAVE THE DATE",
+    "boton": "ADD TO CALENDAR"
+  },
+  "historia": {
+    "categoria": "ARTÍCULO PRINCIPAL",
+    "titulo": "Un nuevo capítulo comienza",
+    "subtitulo": "Edición Especial · Junio 2027",
+    "foto": "assets/img/fotos/foto2.jpg",
+    "fotoAlt": "Sesión editorial de NYAH",
+    "pieDeFoto": "NYAH · Fotografía oficial para la Edición XV · Primavera 2027",
+    "parrafo1": "Hay momentos que llegan para transformar nuestra historia y convertirse en recuerdos que permanecerán para siempre. Después de tantos sueños, ilusiones y preparativos, por fin ha llegado el día de celebrar una etapa muy especial de mi vida.",
+    "parrafo2": "Más que una fiesta, este será un instante lleno de emociones, sonrisas y personas que ocupan un lugar importante en mi corazón. Cada detalle ha sido preparado con cariño para compartir contigo una noche inolvidable.",
+    "parrafo3": "Gracias por acompañarme a escribir esta nueva página. Tu presencia hará que esta edición sea aún más especial."
+  },
+  "collage": {
+    "fotos": [
+      {
+        "foto": "./assets/img/fotos/foto1.jpg"
+      },
+      {
+        "foto": "./assets/img/fotos/foto2.jpg"
+      },
+      {
+        "foto": "./assets/img/fotos/foto2.jpg"
+      },
+      {
+        "foto": "./assets/img/fotos/foto1.jpg"
+      }
+    ]
+  },
+  "familia": {
+    "subtitulo": "CON GRATITUD",
+    "titulo": "EN ESTE IMPORTANTE DIA",
+    "texto": "Este momento no sería el mismo sin el amor, la guía y el apoyo de quienes han caminado a nuestro lado. Gracias a nuestros padres y padrinos por acompañarnos y ser parte de esta historia.",
+    "grupos": [
+      {
+        "titulo": "PADRES",
+        "nombre1": "María Fernanda López",
+        "nombre2": "José Luis Pérez"
+      },
+      {
+        "titulo": "PADRINOS",
+        "nombre1": "Patricia Gómez",
+        "nombre2": "Ricardo Martínez"
+      }
+    ]
+  },
+  "cronograma": {
+    "etiqueta": "ISSUE XV",
+    "titulo": "El Programa",
+    "descripcion": "Cada momento ha sido cuidadosamente preparado para compartir una noche inolvidable.",
+    "actividades": [
+      {
+        "hora": "<span class=\"hour\">05</span> <span class=\"minutes\">00 PM</span>",
+        "numero": "01",
+        "actividad": "Ceremonia",
+        "lugar": "Parroquia San José"
+      },
+      {
+        "hora": "<span class=\"hour\">07</span> <span class=\"minutes\">00 PM</span>",
+        "numero": "02",
+        "actividad": "Recepción",
+        "lugar": "Jardín Las Palmas"
+      },
+      {
+        "hora": "<span class=\"hour\">08</span> <span class=\"minutes\">00 PM</span>",
+        "numero": "03",
+        "actividad": "Cena"
+      },
+      {
+        "hora": "<span class=\"hour\">09</span> <span class=\"minutes\">00 PM</span>",
+        "numero": "04",
+        "actividad": "Vals"
+      },
+      {
+        "hora": "<span class=\"hour\">10</span> <span class=\"minutes\">00 PM</span>",
+        "numero": "05",
+        "actividad": "Baile"
+      }
+    ]
+  },
+  "ubicaciones": {
+    "imagen": "./assets/icons/copas.png",
+    "etiqueta": "DESTINOS",
+    "titulo": "Tu Pase de Acceso",
+    "pases": [
+      {
+        "etiqueta": "DESTINATION 01",
+        "titulo": "CEREMONIA",
+        "lugar": "Parroquia San José",
+        "dato1": "<span>BOARDING</span> <strong>05:00 PM</strong>",
+        "dato2": "<span>DATE</span> <strong data-fecha-corta=\"\">(se llena sola)</strong>",
+        "dato3": "<span>DRESS CODE</span> <strong>FORMAL</strong>",
+        "mapa": "#",
+        "boton": "VER UBICACIÓN →"
+      },
+      {
+        "etiqueta": "DESTINATION 02",
+        "titulo": "CELEBRACIÓN",
+        "lugar": "Jardín Magnolia",
+        "dato1": "<span>BOARDING</span> <strong>07:00 PM</strong>",
+        "dato2": "<span>DATE</span> <strong data-fecha-corta=\"\">(se llena sola)</strong>",
+        "dato3": "<span>DRESS CODE</span> <strong>FORMAL</strong>",
+        "mapa": "#",
+        "boton": "VER UBICACIÓN →"
+      }
+    ]
+  },
+  "vestimenta": {
+    "etiqueta": "THE STYLE EDIT",
+    "titulo": "Dress Code",
+    "subtitulo": "Una noche para brillar y celebrar a lo grande.",
+    "numero": "XV",
+    "etiquetaTarjeta": "CÓDIGO DE VESTIMENTA",
+    "codigo": "Formal glam",
+    "texto": "Elegancia con un toque de fiesta. Reserva el rosa para la protagonista y acompáñanos con tu mejor look."
+  },
+  "regalos": {
+    "etiqueta": "WITH LOVE",
+    "titulo": "Mesa de Regalos",
+    "subtitulo": "El mejor regalo es compartir esta noche conmigo.",
+    "edicion": "XV EDITION",
+    "tituloTarjeta": "Un detalle para recordar",
+    "texto": "Si deseas obsequiarme algo, encontrarás una opción pensada con mucho cariño.",
+    "link": "#",
+    "boton": "VER MESA DE REGALOS <span aria-hidden=\"true\">→</span>"
+  },
+  "confirmacion": {
+    "etiqueta": "RSVP",
+    "titulo": "¿Nos acompañas?",
+    "texto": "Confirma tu asistencia para reservar tu lugar en esta edición especial.",
+    "link": "https://wa.me/",
+    "boton": "CONFIRMAR ASISTENCIA <span aria-hidden=\"true\">→</span>",
+    "whatsapp": "",
+    "mensajeWhatsapp": "Hola, confirmo mi asistencia a los XV de NYAH. Soy "
+  },
+  "instagram": {
+    "etiqueta": "SOCIAL SNAPSHOTS",
+    "titulo": "Comparte tu mirada",
+    "texto": "Etiqueta tus fotos de esta noche con",
+    "link": "https://instagram.com",
+    "hashtag": "#NYAHXV",
+    "nota": "y forma parte de nuestra edición especial."
+  },
+  "footer": {
+    "etiqueta": "INVITACIÓN DIGITAL",
+    "texto": "Diseñada con intención por",
+    "link": "#",
+    "marcaAria": "Mirai",
+    "marca": "MIRAI",
+    "subtitulo": "CREATIVE STUDIO"
+  },
+  "textosFecha": {
+    "meses": [
+      "ENERO",
+      "FEBRERO",
+      "MARZO",
+      "ABRIL",
+      "MAYO",
+      "JUNIO",
+      "JULIO",
+      "AGOSTO",
+      "SEPTIEMBRE",
+      "OCTUBRE",
+      "NOVIEMBRE",
+      "DICIEMBRE"
+    ],
+    "mesesCortos": [
+      "ENE",
+      "FEB",
+      "MAR",
+      "ABR",
+      "MAY",
+      "JUN",
+      "JUL",
+      "AGO",
+      "SEPT",
+      "OCT",
+      "NOV",
+      "DIC"
+    ],
+    "dias": [
+      "DOMINGO",
+      "LUNES",
+      "MARTES",
+      "MIERCOLES",
+      "JUEVES",
+      "VIERNES",
+      "SABADO"
+    ],
+    "diasCalendario": [
+      "LUN",
+      "MAR",
+      "MIE",
+      "JUE",
+      "VIE",
+      "SAB",
+      "DOM"
+    ],
+    "hoy": "¡Hoy es el gran día!"
+  }
+}

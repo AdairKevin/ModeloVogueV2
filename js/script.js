@@ -4,62 +4,32 @@
    Todo lo que cambia entre invitaciones está en CONFIG.
 ===================================================== */
 
-/* ---------------- CONFIGURACIÓN ---------------- */
+/* ---------------- CONFIGURACIÓN ----------------
+   Todo viene de contenido.json (lo carga motor.js en window.INVITACION):
+   la fecha en evento.inicio, el WhatsApp en confirmacion.whatsapp,
+   los links de mapas en ubicaciones.pases y los nombres de meses y días en textosFecha. */
+var DATOS = window.INVITACION;
 var CONFIG = {
-  // Fecha y hora del evento (hora local de quien la abre)
-  fecha: { anio: 2027, mes: 3, dia: 6, hora: 17, minuto: 0 },
-  duracionHoras: 6,
+  fecha: (function () {
+    var d = new Date(DATOS.evento.inicio);
+    return { anio: d.getFullYear(), mes: d.getMonth() + 1, dia: d.getDate(), hora: d.getHours(), minuto: d.getMinutes() };
+  })(),
+  duracionHoras: DATOS.evento.duracionHoras,
 
-  titulo: "Mis XV · NYAH",
-  descripcion: "Te esperamos para celebrar mi gran día.",
-  lugar: "Parroquia San José",
+  titulo: DATOS.evento.tituloCalendario,
+  descripcion: DATOS.evento.detallesCalendario,
+  lugar: DATOS.evento.lugarCalendario,
 
-  // WhatsApp para confirmar: código de país + número, sin + ni espacios.
-  // Ejemplo México: "5215512345678". Si lo dejas vacío no se modifica el enlace.
-  whatsapp: "",
-  mensajeWhatsapp: "Hola, confirmo mi asistencia a los XV de NYAH. Soy ",
+  whatsapp: DATOS.confirmacion.whatsapp,
+  mensajeWhatsapp: DATOS.confirmacion.mensajeWhatsapp,
 
-  // Enlaces de mapa (opcionales). Orden: ceremonia, recepción.
-  mapas: ["", ""],
+  // Los links de mapas ya vienen en el HTML desde contenido.json
+  mapas: [],
 };
 
-var MESES = [
-  "ENERO",
-  "FEBRERO",
-  "MARZO",
-  "ABRIL",
-  "MAYO",
-  "JUNIO",
-  "JULIO",
-  "AGOSTO",
-  "SEPTIEMBRE",
-  "OCTUBRE",
-  "NOVIEMBRE",
-  "DICIEMBRE",
-];
-var MESES_CORTO = [
-  "ENE",
-  "FEB",
-  "MAR",
-  "ABR",
-  "MAY",
-  "JUN",
-  "JUL",
-  "AGO",
-  "SEPT",
-  "OCT",
-  "NOV",
-  "DIC",
-];
-var DIAS = [
-  "DOMINGO",
-  "LUNES",
-  "MARTES",
-  "MIERCOLES",
-  "JUEVES",
-  "VIERNES",
-  "SABADO",
-];
+var MESES = DATOS.textosFecha.meses;
+var MESES_CORTO = DATOS.textosFecha.mesesCortos;
+var DIAS = DATOS.textosFecha.dias;
 
 /* ---------------- UTILIDADES ---------------- */
 function $(sel, ctx) {
@@ -228,7 +198,7 @@ var Fecha = (function () {
     if (titulo) titulo.textContent = MESES[mes] + " " + anio;
 
     cont.innerHTML = "";
-    ["LUN", "MAR", "MIE", "JUE", "VIE", "SAB", "DOM"].forEach(function (n) {
+    DATOS.textosFecha.diasCalendario.forEach(function (n) {
       var el = document.createElement("div");
       el.className = "day-name";
       el.textContent = n;
@@ -319,7 +289,7 @@ var Cuenta = (function () {
     var resta = fechaEvento().getTime() - Date.now();
     if (resta <= 0) {
       var t = $(".timer-titulo");
-      if (t) t.textContent = "¡Hoy es el gran día!";
+      if (t) t.textContent = DATOS.textosFecha.hoy;
       poner("dias", "0");
       poner("horas", "00");
       poner("minutos", "00");

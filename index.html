@@ -1,70 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
   <head>
     <!-- Meta -->
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>NYAH · XV Edition — Invitación</title>
-    <meta name="description" content="Estás invitado a la edición más especial: los XV de NYAH." />
-    <meta name="theme-color" content="#f8b6c9" />
-    <meta property="og:title" content="NYAH · XV Edition" />
-    <meta property="og:description" content="Estás invitado a la edición más especial: los XV de NYAH." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="assets/img/fotos/foto1.jpg" />
+    <meta name="description" content="Estás invitado a la edición más especial: los XV de NYAH.">
+    <meta name="theme-color" content="#f8b6c9">
+    <meta property="og:title" content="NYAH · XV Edition">
+    <meta property="og:description" content="Estás invitado a la edición más especial: los XV de NYAH.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/img/fotos/foto1.jpg">
 
     <!-- Fuentes -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500&family=Playball&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;1,6..96,400&amp;family=Cormorant+Garamond:wght@400;500;600&amp;family=Inter:wght@400;500&amp;family=Playball&amp;display=swap" rel="stylesheet">
 
     <script>
       document.documentElement.classList.add("js");
     </script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/variables.css" />
-    <link rel="stylesheet" href="css/components.css" />
-    <link rel="stylesheet" href="css/layout.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/envelope.css" />
-    <link rel="stylesheet" href="css/animations.css" />
-    <link rel="stylesheet" href="css/premium.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/envelope.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/premium.css">
+    <link rel="stylesheet" href="css/responsive.css">
   </head>
-
   <body class="">
+    <!-- Todos los textos, fotos y links se editan en contenido.json; aquí solo van variables -->
+    <template id="plantilla">
     <!-- =========================
             SOBRE VIRTUAL
     ========================== -->
     <div class="envelope-screen" id="envelopeScreen">
       <div class="fx" id="sobreFx" aria-hidden="true"></div>
 
-      <p class="envelope-kicker">Una invitación para ti</p>
+      <p class="envelope-kicker">{{sobre.frase}}</p>
 
       <div class="envelope" id="envelope">
         <div class="envelope-flap"></div>
 
         <!-- Carta que asoma al abrir -->
-        <div class="envelope-letter" aria-hidden="true">
-          <small>You're invited</small>
-          <strong>NYAH</strong>
-          <em>XV Edition</em>
-        </div>
+        <div class="envelope-letter" aria-hidden="true">{{sobre.carta}}</div>
 
-        <div
-          class="wax-seal"
-          id="openEnvelope"
-          role="button"
-          tabindex="0"
-          aria-label="Abrir invitación"
-        ></div>
+        <div class="wax-seal" id="openEnvelope" role="button" tabindex="0" aria-label="{{sobre.selloAria}}"></div>
       </div>
 
-      <p class="envelope-hint">Toca el sello para abrir</p>
+      <p class="envelope-hint">{{sobre.instruccion}}</p>
     </div>
 
     <div class="progreso" id="progreso" aria-hidden="true"></div>
@@ -74,9 +62,9 @@
         <!-- =========================
             MÚSICA
     ========================== -->
-        <audio id="backgroundMusic" loop preload="none">
-          <source src="./assets/music/background.mp3" type="audio/mpeg" />
-          Tu navegador no soporta el elemento de audio.
+        <audio id="backgroundMusic" loop="" preload="none">
+          <source src="{{musica.archivo}}" type="audio/mpeg">
+          {{musica.sinSoporte}}
         </audio>
 
         <!-- =========================
@@ -88,22 +76,18 @@
 
           <div class="hero-content">
             <div class="hero-text">
-              <h1 class="hero-title">
-                <span class="hero-line" style="--i: 0">Its</span>
-                <span class="hero-line" style="--i: 1">Party</span>
-                <span class="hero-line" style="--i: 2">Time!</span>
-              </h1>
+              <h1 class="hero-title">{{portada.titulo}}</h1>
             </div>
           </div>
 
-          <div class="hero-scroll" aria-hidden="true">Desliza</div>
+          <div class="hero-scroll" aria-hidden="true">{{portada.desliza}}</div>
         </section>
 
         <section id="name">
           <div class="name">
-            <h2 class="name-xv">NYAH</h2>
-            <p class="edition-xv">XV EDITION</p>
-            <span class="edition-year"> EST. 2027 </span>
+            <h2 class="name-xv">{{nombre.nombre}}</h2>
+            <p class="edition-xv">{{nombre.edicion}}</p>
+            <span class="edition-year">{{nombre.anio}}</span>
           </div>
         </section>
 
@@ -111,13 +95,9 @@
         WELCOME
     ========================== -->
         <section id="welcome">
-          <span class="editorial-label"> EDITOR'S NOTE </span>
+          <span class="editorial-label">{{bienvenida.etiqueta}}</span>
 
-          <p class="editorial-message">
-            Cada página guarda una historia. Cada detalle, un recuerdo.
-            <br />
-            Hoy comienza un capítulo inolvidable, y quiero compartirlo contigo.
-          </p>
+          <p class="editorial-message">{{bienvenida.texto}}</p>
         </section>
 
         <!-- =========================
@@ -125,8 +105,10 @@
     ========================== -->
         <section id="fotos-principales">
           <div class="container-fotos">
-            <img src="./assets/img/fotos/foto1.jpg" alt="Foto 1" />
-            <img src="./assets/img/fotos/foto2.jpg" alt="Foto 2" />
+            {{#fotosPrincipales.fotos}}
+            <img src="{{foto}}" alt="{{alt}}">
+            {{/fotosPrincipales.fotos}}
+            
           </div>
         </section>
 
@@ -139,23 +121,23 @@
             <h2 id="fechaTexto">JUNIO 25, 2027</h2>
           </div>
           <div class="timer">
-            <h1 class="timer-titulo">Solo faltan:</h1>
+            <h1 class="timer-titulo">{{cuentaRegresiva.titulo}}</h1>
             <ul class="date-time">
               <li>
                 <div class="time_number" id="dias"></div>
-                <div class="time_txt">Dias</div>
+                <div class="time_txt">{{cuentaRegresiva.dias}}</div>
               </li>
               <li>
                 <div class="time_number" id="horas"></div>
-                <div class="time_txt">Hrs</div>
+                <div class="time_txt">{{cuentaRegresiva.horas}}</div>
               </li>
               <li>
                 <div class="time_number" id="minutos"></div>
-                <div class="time_txt">Min</div>
+                <div class="time_txt">{{cuentaRegresiva.minutos}}</div>
               </li>
               <li>
                 <div class="time_number" id="segundos"></div>
-                <div class="time_txt">Seg</div>
+                <div class="time_txt">{{cuentaRegresiva.segundos}}</div>
               </li>
             </ul>
           </div>
@@ -163,7 +145,7 @@
 
         <section id="calendar" class="section">
           <div class="editorial-header">
-            <span class="editorial-tag"> SAVE THE DATE </span>
+            <span class="editorial-tag">{{calendario.etiqueta}}</span>
 
             <h2 class="editorial-title" id="calendarioTitulo">JUNIO 2027</h2>
           </div>
@@ -224,15 +206,7 @@
             <div class="empty"></div>
           </div>
 
-          <a
-            class="btn-calendar"
-            id="btnCalendario"
-            href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Mis+XV&dates=20260919T180000/20260919T230000&details=Te+esperamos+para+celebrar+mi+gran+día.&location=Salón+de+Eventos+Las+Orquídeas"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            ADD TO CALENDAR
-          </a>
+          <a class="btn-calendar" id="btnCalendario" href="#" target="_blank" rel="noopener noreferrer">{{calendario.boton}}</a>
         </section>
 
         <!-- =========================
@@ -240,41 +214,23 @@
     ========================== -->
         <section id="editorial-story">
           <div class="editorial-heading">
-            <span class="editorial-category"> ARTÍCULO PRINCIPAL </span>
-            <h2 class="editorial-title">Un nuevo capítulo comienza</h2>
-            <p class="editorial-subtitle">Edición Especial · Junio 2027</p>
+            <span class="editorial-category">{{historia.categoria}}</span>
+            <h2 class="editorial-title">{{historia.titulo}}</h2>
+            <p class="editorial-subtitle">{{historia.subtitulo}}</p>
           </div>
 
           <figure class="editorial-photo">
-            <img
-              src="assets/img/fotos/foto2.jpg"
-              alt="Sesión editorial de NYAH"
-            />
+            <img src="{{historia.foto}}" alt="{{historia.fotoAlt}}">
 
-            <figcaption>
-              NYAH · Fotografía oficial para la Edición XV · Primavera 2027
-            </figcaption>
+            <figcaption>{{historia.pieDeFoto}}</figcaption>
           </figure>
 
           <article class="editorial-article">
-            <p>
-              Hay momentos que llegan para transformar nuestra historia y
-              convertirse en recuerdos que permanecerán para siempre. Después de
-              tantos sueños, ilusiones y preparativos, por fin ha llegado el día
-              de celebrar una etapa muy especial de mi vida.
-            </p>
+            <p>{{historia.parrafo1}}</p>
 
-            <p>
-              Más que una fiesta, este será un instante lleno de emociones,
-              sonrisas y personas que ocupan un lugar importante en mi corazón.
-              Cada detalle ha sido preparado con cariño para compartir contigo
-              una noche inolvidable.
-            </p>
+            <p>{{historia.parrafo2}}</p>
 
-            <p>
-              Gracias por acompañarme a escribir esta nueva página. Tu presencia
-              hará que esta edición sea aún más especial.
-            </p>
+            <p>{{historia.parrafo3}}</p>
           </article>
         </section>
 
@@ -283,51 +239,40 @@
     ========================== -->
 
         <section class="collage">
-          <div class="card card1">
-            <img src="./assets/img/fotos/foto1.jpg" />
+          {{#collage.fotos}}
+          <div class="card card{{@indice}}">
+            <img src="{{foto}}">
           </div>
+          {{/collage.fotos}}
 
-          <div class="card card2">
-            <img src="./assets/img/fotos/foto2.jpg" />
-          </div>
+          
 
-          <div class="card card3">
-            <img src="./assets/img/fotos/foto2.jpg" />
-          </div>
+          
 
-          <div class="card card4">
-            <img src="./assets/img/fotos/foto1.jpg" />
-          </div>
+          
         </section>
 
         <section class="section-familia">
           <div class="familia-container">
-            <span class="familia-subtitulo">CON GRATITUD</span>
+            <span class="familia-subtitulo">{{familia.subtitulo}}</span>
 
-            <h2 class="familia-titulo">EN ESTE IMPORTANTE DIA</h2>
+            <h2 class="familia-titulo">{{familia.titulo}}</h2>
 
-            <p class="familia-texto">
-              Este momento no sería el mismo sin el amor, la guía y el apoyo de
-              quienes han caminado a nuestro lado. Gracias a nuestros padres y
-              padrinos por acompañarnos y ser parte de esta historia.
-            </p>
+            <p class="familia-texto">{{familia.texto}}</p>
 
             <div class="linea"></div>
 
             <div class="familia-grid">
+              {{#familia.grupos}}
               <div class="familia-item">
-                <h3>PADRES</h3>
+                <h3>{{titulo}}</h3>
 
-                <p>María Fernanda López</p>
-                <p>José Luis Pérez</p>
+                <p>{{nombre1}}</p>
+                <p>{{nombre2}}</p>
               </div>
+              {{/familia.grupos}}
 
-              <div class="familia-item">
-                <h3>PADRINOS</h3>
-
-                <p>Patricia Gómez</p>
-                <p>Ricardo Martínez</p>
-              </div>
+              
             </div>
           </div>
         </section>
@@ -337,85 +282,35 @@
     ========================== -->
         <section class="schedule">
           <div class="schedule-header">
-            <span class="schedule-tag">ISSUE XV</span>
+            <span class="schedule-tag">{{cronograma.etiqueta}}</span>
 
-            <h2 class="schedule-title">El Programa</h2>
+            <h2 class="schedule-title">{{cronograma.titulo}}</h2>
 
-            <p class="schedule-description">
-              Cada momento ha sido cuidadosamente preparado para compartir una
-              noche inolvidable.
-            </p>
+            <p class="schedule-description">{{cronograma.descripcion}}</p>
           </div>
 
           <div class="schedule-list">
+            {{#cronograma.actividades}}
             <article class="schedule-item">
-              <div class="schedule-time">
-                <span class="hour">05</span>
-                <span class="minutes">00 PM</span>
-              </div>
+              <div class="schedule-time">{{hora}}</div>
 
               <div class="schedule-content">
-                <span class="number">01</span>
+                <span class="number">{{numero}}</span>
 
-                <h3>Ceremonia</h3>
+                <h3>{{actividad}}</h3>
 
-                <p>Parroquia San José</p>
+                {{#lugar}}<p>{{lugar}}</p>{{/lugar}}
               </div>
             </article>
+            {{/cronograma.actividades}}
 
-            <article class="schedule-item">
-              <div class="schedule-time">
-                <span class="hour">07</span>
-                <span class="minutes">00 PM</span>
-              </div>
+            
 
-              <div class="schedule-content">
-                <span class="number">02</span>
+            
 
-                <h3>Recepción</h3>
+            
 
-                <p>Jardín Las Palmas</p>
-              </div>
-            </article>
-
-            <article class="schedule-item">
-              <div class="schedule-time">
-                <span class="hour">08</span>
-                <span class="minutes">00 PM</span>
-              </div>
-
-              <div class="schedule-content">
-                <span class="number">03</span>
-
-                <h3>Cena</h3>
-              </div>
-            </article>
-
-            <article class="schedule-item">
-              <div class="schedule-time">
-                <span class="hour">09</span>
-                <span class="minutes">00 PM</span>
-              </div>
-
-              <div class="schedule-content">
-                <span class="number">04</span>
-
-                <h3>Vals</h3>
-              </div>
-            </article>
-
-            <article class="schedule-item">
-              <div class="schedule-time">
-                <span class="hour">10</span>
-                <span class="minutes">00 PM</span>
-              </div>
-
-              <div class="schedule-content">
-                <span class="number">05</span>
-
-                <h3>Baile</h3>
-              </div>
-            </article>
+            
           </div>
         </section>
 
@@ -423,99 +318,59 @@
         CEREMONIA y RECEPCIÓN
     ========================== -->
         <section class="Ubicaciones">
-          <img src="./assets/icons/copas.png" class="ubicacionHero" alt="" />
+          <img src="{{ubicaciones.imagen}}" class="ubicacionHero" alt="">
         </section>
 
         <section class="boarding-section">
           <div class="section-title">
-            <span>DESTINOS</span>
+            <span>{{ubicaciones.etiqueta}}</span>
 
-            <h2>Tu Pase de Acceso</h2>
+            <h2>{{ubicaciones.titulo}}</h2>
           </div>
 
-          <article class="boarding-pass left">
+          {{#ubicaciones.pases}}
+          <article class="boarding-pass {{@lado}}">
             <div class="ticket-cut left-cut"></div>
             <div class="ticket-cut right-cut"></div>
 
-            <small>DESTINATION 01</small>
+            <small>{{etiqueta}}</small>
 
-            <h3>CEREMONIA</h3>
+            <h3>{{titulo}}</h3>
 
-            <h4>Parroquia San José</h4>
+            <h4>{{lugar}}</h4>
 
             <div class="ticket-divider"></div>
 
             <div class="ticket-info">
-              <div>
-                <span>BOARDING</span>
-                <strong>05:00 PM</strong>
-              </div>
+              <div>{{dato1}}</div>
 
-              <div>
-                <span>DATE</span>
-                <strong data-fecha-corta>05 SEPT 2026</strong>
-              </div>
+              <div>{{dato2}}</div>
 
-              <div>
-                <span>DRESS CODE</span>
-                <strong>FORMAL</strong>
-              </div>
+              <div>{{dato3}}</div>
             </div>
 
-            <a href="#" data-mapa> VER UBICACIÓN → </a>
+            <a href="{{mapa}}" data-mapa="">{{boton}}</a>
           </article>
+          {{/ubicaciones.pases}}
 
-          <article class="boarding-pass right">
-            <div class="ticket-cut left-cut"></div>
-            <div class="ticket-cut right-cut"></div>
-
-            <small>DESTINATION 02</small>
-
-            <h3>CELEBRACIÓN</h3>
-
-            <h4>Jardín Magnolia</h4>
-
-            <div class="ticket-divider"></div>
-
-            <div class="ticket-info">
-              <div>
-                <span>BOARDING</span>
-                <strong>07:00 PM</strong>
-              </div>
-
-              <div>
-                <span>DATE</span>
-                <strong data-fecha-corta>05 SEPT 2026</strong>
-              </div>
-
-              <div>
-                <span>DRESS CODE</span>
-                <strong>FORMAL</strong>
-              </div>
-            </div>
-
-            <a href="#" data-mapa> VER UBICACIÓN → </a>
-          </article>
+          
         </section>
         <!-- =========================
         DRESS CODE
     ========================== -->
         <section id="dresscode" class="dresscode-section">
           <div class="dresscode-heading">
-            <span class="editorial-tag">THE STYLE EDIT</span>
-            <h2>Dress Code</h2>
-            <p>Una noche para brillar y celebrar a lo grande.</p>
+            <span class="editorial-tag">{{vestimenta.etiqueta}}</span>
+            <h2>{{vestimenta.titulo}}</h2>
+            <p>{{vestimenta.subtitulo}}</p>
           </div>
 
           <div class="dresscode-card">
-            <span class="dresscode-number">XV</span>
-            <p class="dresscode-label">CÓDIGO DE VESTIMENTA</p>
-            <h3>Formal glam</h3>
+            <span class="dresscode-number">{{vestimenta.numero}}</span>
+            <p class="dresscode-label">{{vestimenta.etiquetaTarjeta}}</p>
+            <h3>{{vestimenta.codigo}}</h3>
             <div class="dresscode-line"></div>
-            <p class="dresscode-copy">
-              Elegancia con un toque de fiesta. Reserva el rosa para la
-              protagonista y acompáñanos con tu mejor look.
-            </p>
+            <p class="dresscode-copy">{{vestimenta.texto}}</p>
           </div>
         </section>
         <!-- =========================
@@ -523,26 +378,16 @@
     ========================== -->
         <section id="gifts" class="gifts-section">
           <div class="gifts-heading">
-            <span class="editorial-tag">WITH LOVE</span>
-            <h2>Mesa de Regalos</h2>
-            <p>El mejor regalo es compartir esta noche conmigo.</p>
+            <span class="editorial-tag">{{regalos.etiqueta}}</span>
+            <h2>{{regalos.titulo}}</h2>
+            <p>{{regalos.subtitulo}}</p>
           </div>
 
           <div class="gifts-card">
-            <span class="gifts-edition">XV EDITION</span>
-            <h3>Un detalle para recordar</h3>
-            <p>
-              Si deseas obsequiarme algo, encontrarás una opción pensada con
-              mucho cariño.
-            </p>
-            <a
-              class="gifts-link"
-              href="#"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              VER MESA DE REGALOS <span aria-hidden="true">→</span>
-            </a>
+            <span class="gifts-edition">{{regalos.edicion}}</span>
+            <h3>{{regalos.tituloTarjeta}}</h3>
+            <p>{{regalos.texto}}</p>
+            <a class="gifts-link" href="{{regalos.link}}" target="_blank" rel="noopener noreferrer">{{regalos.boton}}</a>
           </div>
         </section>
 
@@ -551,19 +396,10 @@
     ========================== -->
         <section id="rsvp" class="rsvp-section">
           <div class="rsvp-card">
-            <span class="editorial-tag">RSVP</span>
-            <h2>¿Nos acompañas?</h2>
-            <p>
-              Confirma tu asistencia para reservar tu lugar en esta edición
-              especial.
-            </p>
-            <a
-              class="rsvp-link"
-              id="rsvpLink" href="https://wa.me/"
-              target="_blank"
-              rel="noopener noreferrer"
-              >CONFIRMAR ASISTENCIA <span aria-hidden="true">→</span></a
-            >
+            <span class="editorial-tag">{{confirmacion.etiqueta}}</span>
+            <h2>{{confirmacion.titulo}}</h2>
+            <p>{{confirmacion.texto}}</p>
+            <a class="rsvp-link" id="rsvpLink" href="{{confirmacion.link}}" target="_blank" rel="noopener noreferrer">{{confirmacion.boton}}</a>
           </div>
         </section>
 
@@ -571,42 +407,34 @@
         SECCIÓN EXTRA
     ========================== -->
         <section id="extras" class="social-section">
-          <span class="editorial-tag">SOCIAL SNAPSHOTS</span>
-          <h2>Comparte tu mirada</h2>
-          <p>Etiqueta tus fotos de esta noche con</p>
-          <a
-            class="social-hashtag"
-            href="https://instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            >#NYAHXV</a
-          >
-          <p class="social-note">y forma parte de nuestra edición especial.</p>
+          <span class="editorial-tag">{{instagram.etiqueta}}</span>
+          <h2>{{instagram.titulo}}</h2>
+          <p>{{instagram.texto}}</p>
+          <a class="social-hashtag" href="{{instagram.link}}" target="_blank" rel="noopener noreferrer">{{instagram.hashtag}}</a>
+          <p class="social-note">{{instagram.nota}}</p>
         </section>
 
         <!-- =========================
             FOOTER
     ========================== -->
         <footer class="mirai-footer">
-          <span>INVITACIÓN DIGITAL</span>
-          <p>Diseñada con intención por</p>
-          <a href="#" aria-label="Mirai">MIRAI</a>
-          <small>CREATIVE STUDIO</small>
+          <span>{{footer.etiqueta}}</span>
+          <p>{{footer.texto}}</p>
+          <a href="{{footer.link}}" aria-label="{{footer.marcaAria}}">{{footer.marca}}</a>
+          <small>{{footer.subtitulo}}</small>
         </footer>
       </div>
 
-      <button
-        class="music-btn"
-        id="musicBtn"
-        type="button"
-        aria-label="Activar o pausar música"
-        aria-pressed="false"
-      >
+      <button class="music-btn" id="musicBtn" type="button" aria-label="{{musica.botonAria}}" aria-pressed="false">
         <span></span><span></span><span></span>
       </button>
     </div>
 
     <!-- JavaScript -->
-    <script src="js/script.js"></script>
+
+      <script src="js/script.js"></script>
+    </template>
+
+    <script src="js/motor.js"></script>
   </body>
 </html>
